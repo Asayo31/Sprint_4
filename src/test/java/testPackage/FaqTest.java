@@ -16,7 +16,6 @@ public class FaqTest extends BaseUITest{
 
         String actual = new MainPage(driver)
                 .open()
-                .clickCookie()
                 .clickFirstFaq()
                 .getFirstFAQText();
 

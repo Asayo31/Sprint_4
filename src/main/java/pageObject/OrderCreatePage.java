@@ -18,9 +18,9 @@ public class OrderCreatePage extends BasePage {
     private final By addressField = By.xpath (".//input[@placeholder = '* Адрес: куда привезти заказ']");
     private final By metroList = By.xpath(".//input[contains(@placeholder, 'Станция метро')]");
     private final By phoneNumberField = By.xpath(".//input[@placeholder = '* Телефон: на него позвонит курьер']");
-    private final By nextStepButton = By.xpath(".//button[@class ='Button_Button__ra12g' and 'Button_Middle__1CSJM']");
+    private final By nextStepButton = By.xpath(".//button[text()='Далее']");
     private final By startTimeField = By.xpath(".//input[@placeholder = '* Когда привезти самокат']");
-    private final By whenStartButton = By.xpath(".//div[@class = 'react-datepicker__day--029']");
+    private final By whenStartButton = By.xpath(".//*[@class = 'react-datepicker__day--029']");
     private final By rentPeriodField = By.className("Dropdown-placeholder");
     private final By rentPeriod = By.xpath(".//div[@class = 'Dropdown-option' and contains(text(), 'четверо суток')");
     private final By ScooterColor = By.xpath(".//input[@id = * and @class = 'Checkbox_Input__14A2w']");
@@ -49,8 +49,8 @@ public class OrderCreatePage extends BasePage {
 
     public OrderCreatePage clickMetroStation(String stationName){
         driver.findElement(metroList).click();
-        driver.findElement(metroList).sendKeys(stationName);
-        driver.findElement(By.xpath(".//button")).click();
+        //driver.findElement(metroList).sendKeys(stationName);
+        driver.findElement(By.xpath(".//div/ul/li[5]/button")).click();
         return this;
     }
 
@@ -61,13 +61,14 @@ public class OrderCreatePage extends BasePage {
 
     public OrderCreatePage clickNextStepOrderButton(){
         driver.findElement(nextStepButton).click();
-        return new OrderCreatePage(driver);
+        driver.findElement(whenStartButton).click();
+        return this;
     } //переход на второй шаг оформления заказа
 
-    public OrderCreatePage clickWhenStartButton(){
+    /*public OrderCreatePage clickWhenStartButton(){
         driver.findElement(whenStartButton).click();
         return new OrderCreatePage(driver);
-    }
+    }*/
 
     public OrderCreatePage setStartTime() {
         driver.findElement(startTimeField).click();

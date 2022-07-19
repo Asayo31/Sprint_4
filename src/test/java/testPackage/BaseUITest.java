@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.junit.After;
 import org.junit.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import pageObject.MainPage;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
@@ -19,6 +20,9 @@ public class BaseUITest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        MainPage mainPage = new MainPage(driver)
+                .open()
+                .clickCookie();
     }
 
     @AfterClass
