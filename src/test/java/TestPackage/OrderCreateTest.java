@@ -34,6 +34,7 @@ public class OrderCreateTest extends BaseUITest {
     public void checkOrderCreationUpButton() {
         boolean isOrderCompleteImageDisplayed = new MainPage(driver)
                 .open()
+                .clickCookie()
                 .clickOrderButtonMainpage(order.getOrderButton())
                 .setNameField(order.getName())
                 .setSurnameField(order.getSurname())
@@ -57,6 +58,7 @@ public class OrderCreateTest extends BaseUITest {
     public void checkOrderCreationBotButton() {
         boolean isOrderCompleteImageDisplayed = new MainPage(driver)
                 .open()
+                .clickCookie()
                 .clickOrderButtonMainpage(order.getOrderButton())
                 .setNameField(order.getName())
                 .setSurnameField(order.getSurname())

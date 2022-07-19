@@ -30,19 +30,33 @@ public class MainPage extends BasePage{
     private final By faqAnswerSix = By.xpath (".//div[@id = 'accordion__panel-13']");
     private final By faqAnswerSeven = By.xpath (".//div[@id = 'accordion__panel-14']");
     private final By faqAnswerEight = By.xpath (".//div[@id = 'accordion__panel-15']");
+    private final By cookie = By.xpath(".//button[@class = 'App_CookieButton__3cvqF']");
+    private final String originOne = "Сутки — 400 рублей. Оплата курьеру — наличными или картой.";
+    private final String originTwo = "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.";
+    private final String originThree = "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.";
+    private final String originFour = "Только начиная с завтрашнего дня. Но скоро станем расторопнее.";
+    private final String originFive = "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.";
+    private final String originSix = "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.";
+    private final String originSeven = "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.";
+    private final String originEight = "Да, обязательно. Всем самокатов! И Москве, и Московской области.";
 
+
+    public MainPage clickCookie (){
+        driver.findElement(cookie).click();
+        return this;
+        }
     public MainPage (WebDriver driver) {
         super(driver);
     }
 
-    public MainPage clickOrderButtonMainpage (String button){
+    public OrderCreatePage clickOrderButtonMainpage (String button){
         if (button.equals("Up")) {driver.findElement(orderCreateUpButton).click();}
         if (button.equals("Bottom")) {
             WebElement element = driver.findElement(orderCreateBotButton);
             ((JavascriptExecutor)driver).executeScript("arguments0[.scrollIntoView", element);
             element.click();
         }
-        return this;
+        return new OrderCreatePage(driver);
     }
 
     public MainPage clickOrderStatusButton(){
@@ -115,36 +129,36 @@ public class MainPage extends BasePage{
         return this;
     } //нажать 8 FAQ
 
-    public boolean isFirstFAQDisplayed () {
-        return driver.findElement(faqAnswerOne).isDisplayed();
+    public String getFirstFAQText () {
+        return driver.findElement(faqAnswerOne).getText();
     } //ответ 1 FAQ
 
-    public boolean isSecondFAQDisplayed () {
-        return driver.findElement(faqAnswerTwo).isDisplayed();
+    public String getSecondFAQText () {
+        return driver.findElement(faqAnswerTwo).getText();
     } //ответ 2 FAQ
 
-    public boolean isThirdFAQDisplayed () {
-        return driver.findElement(faqAnswerThree).isDisplayed();
+    public String getThirdFAQText () {
+        return driver.findElement(faqAnswerThree).getText();
     } //ответ 3 FAQ
 
-    public boolean isFourFAQDisplayed () {
-        return driver.findElement(faqAnswerFour).isDisplayed();
+    public String getFourFAQText () {
+        return driver.findElement(faqAnswerFour).getText();
     } //ответ 4 FAQ
 
-    public boolean isFiveFAQDisplayed () {
-        return driver.findElement(faqAnswerFive).isDisplayed();
+    public String getFiveFAQText () {
+        return driver.findElement(faqAnswerFive).getText();
     } //ответ 5 FAQ
 
-    public boolean isSixFAQDisplayed () {
-        return driver.findElement(faqAnswerSix).isDisplayed();
+    public String getSixFAQText () {
+        return driver.findElement(faqAnswerSix).getText();
     } //ответ 6 FAQ
 
-    public boolean isSevenFAQDisplayed () {
-        return driver.findElement(faqAnswerSeven).isDisplayed();
+    public String getSevenFAQText () {
+        return driver.findElement(faqAnswerSeven).getText();
     } //ответ 7 FAQ
 
-    public boolean isEightFAQDisplayed () {
-        return driver.findElement(faqAnswerEight).isDisplayed();
+    public String getEightFAQText () {
+        return driver.findElement(faqAnswerEight).getText();
     } //ответ 8 FAQ
 
 }

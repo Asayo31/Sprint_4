@@ -4,6 +4,7 @@ import PageObject.MainPage;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class FaqTest {
@@ -12,88 +13,89 @@ public class FaqTest {
     @Test
     public void checkFaqRowOne() {
 
-        boolean isFirstFAQDisplayed = new MainPage(driver)
+        String actual = new MainPage(driver)
                 .open()
                 .clickFirstFaq()
-                .isFirstFAQDisplayed();
+                .getFirstFAQText();
 
-        assertTrue("First FAQ row is not displayed", isFirstFAQDisplayed);
+        assertEquals(originOne, actual);
     }
 
     @Test
     public void checkFaqRowTwo() {
 
-        boolean isSecondFAQDisplayed = new MainPage(driver)
+        String actual = new MainPage(driver)
                 .open()
                 .clickSecondFaq()
-                .isSecondFAQDisplayed();
+                .getSecondFAQText();
 
-        assertTrue("First FAQ row is not displayed", isSecondFAQDisplayed);
+        assertEquals(originTwo, actual);
     }
 
     @Test
     public void checkFaqRowThree() {
 
-        boolean isThirdFAQDisplayed = new MainPage(driver)
+        String actual ThirdFAQDisplayed = new MainPage(driver)
                 .open()
                 .clickThirdFaq()
-                .isThirdFAQDisplayed();
+                .getThirdFAQText();
 
-        assertTrue("First FAQ row is not displayed", isThirdFAQDisplayed);
+        assertEquals(OriginThree, actual);
     }
 
     @Test
     public void checkFaqRowFour() {
 
-        boolean isFourthFAQDisplayed = new MainPage(driver)
+        String actual = new MainPage(driver)
                 .open()
                 .clickFourFaq()
-                .isFourFAQDisplayed();
+                .getFourFAQText();
 
-        assertTrue("First FAQ row is not displayed", isFourthFAQDisplayed);
+        assertEquals(originFour, actual);
     }
 
     @Test
     public void checkFaqRowFive() {
 
-        boolean isFifthFAQDisplayed = new MainPage(driver)
+        String actual = new MainPage(driver)
                 .open()
                 .clickFiveFaq()
-                .isFiveFAQDisplayed();
+                .getFiveFAQText();
 
-        assertTrue("First FAQ row is not displayed", isFifthFAQDisplayed);
+        assertEquals(originFive, actual);
     }
 
     @Test
     public void checkFaqRowSix() {
 
-        boolean isSixthFAQDisplayed = new MainPage(driver)
+        String actual = new MainPage(driver)
                 .open()
                 .clickSixFaq()
-                .isSixFAQDisplayed();
+                .getSixFAQText();
 
-        assertTrue("First FAQ row is not displayed", isSixthFAQDisplayed);
+        assertEquals(originSix, actual);
     }
 
     @Test
     public void checkFaqRowSeven() {
 
-        boolean isSeventhFAQDisplayed = new MainPage(driver)
+        String actual = new MainPage(driver)
                 .open()
                 .clickSevenFaq()
-                .isSevenFAQDisplayed();
+                .getSevenFAQText();
 
-        assertTrue ("First FAQ row is not displayed", isSeventhFAQDisplayed);
+        assertEquals (originSeven, actual);
     }
 
     @Test
     public void checkFaqRowEight() {
 
-        boolean isEightFAQDisplayed = new MainPage(driver)
+        String actual = new MainPage(driver)
                 .open()
                 .clickEightFaq()
-                .isEightFAQDisplayed();
+                .getEightFAQText();
 
-        assertTrue ("First FAQ row is not displayed", isEightFAQDisplayed);
+        assertEquals (originEight, actual);
     }
+
 }

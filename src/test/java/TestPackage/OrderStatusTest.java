@@ -14,6 +14,7 @@ public class OrderStatusTest extends BaseUITest{
 
         boolean isOrderNotFoundImageDisplayed = new MainPage(driver)
                 .open()
+                .clickCookie()
                 .clickOrderStatusButton()
                 .enterOrderNumber("123")
                 .clickSearchOrderButton()
