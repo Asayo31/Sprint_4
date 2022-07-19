@@ -1,8 +1,8 @@
 package TestPackage;
 //условно готовый тест на проверку статуса заказа "не найден"
+
+import Model.Order;
 import PageObject.MainPage;
-import PageObject.OrderStatusPage;
-import TestData.ScooterUrls;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -12,28 +12,34 @@ import static org.junit.Assert.assertTrue;
 
 
 @RunWith(Parameterized.class)
-public class OrderCreateTest extends BaseUITest{
+public class OrderCreateTest extends BaseUITest {
+
+    private final Order order;
+
+    public OrderCreateTest(Order order) {
+        this.order = order;
+    }
 
     @Parameterized.Parameters
-    public static Object order() {
-        return new Object[][] {
-                {new Order("Тест", "Юзер", "Тестовый адрес", "Автозаводская", "89607779485", "18.07.2022", "четверо суток", "black", "Оставьте у подъезда")},
-                {new Order("Павел", "Викторович", "Город Тверь", "Автозаводская", "89605559485", "19.07.2022", "сутки", "grey", "Нет комментария")}
+    public static Object[][] order() {
+        return new Object[][]{
+                {new Order("Up", "Ана", "Че", "Москва Королева 15", "Фрунзенская", "79998887766")},
+                {new Order("Bottom", "Тест", "Тестов", "Казань Баумана 3", "Кунцевская", "79008007060")}
         };
     }
+
     private WebDriver driver;
 
     @Test
-    public void checkOrderCreationUpButton (){
+    public void checkOrderCreationUpButton() {
         boolean isOrderCompleteImageDisplayed = new MainPage(driver)
                 .open()
-                .clickOrderCreateUpButton()
-                .setNameField("Ана")
-                .setSurnameField("Че")
-                .setRentAddressField("Москва Королева 15")
-                .clickMetroStation()
-                .clickMetroList()
-                .setPhoneNumberField("79998887766")
+                .clickOrderButtonMainpage(order.getOrderButton())
+                .setNameField(order.getName())
+                .setSurnameField(order.getSurname())
+                .setRentAddressField(order.getAddress())
+                .clickMetroStation(order.getMetroStation())
+                .setPhoneNumberField(order.getPhoneNumber())
                 .clickNextStepOrderButton()
                 .clickWhenStartButton()
                 .setStartTime()
@@ -44,20 +50,19 @@ public class OrderCreateTest extends BaseUITest{
                 .clickConfirmButton()
                 .isOrderCompleteImageDisplayed();
 
-        assertTrue("Order created image is not displayed",isOrderCompleteImageDisplayed);
+        assertTrue("Order created image is not displayed", isOrderCompleteImageDisplayed);
     }
 
     @Test
-    public void checkOrderCreationBotButton (){
+    public void checkOrderCreationBotButton() {
         boolean isOrderCompleteImageDisplayed = new MainPage(driver)
                 .open()
-                .clickOrderCreateBotButton()
-                .setNameField("Ана")
-                .setSurnameField("Че")
-                .setRentAddressField("Москва Королева 15")
-                .clickMetroStation()
-                .clickMetroList()
-                .setPhoneNumberField("79998887766")
+                .clickOrderButtonMainpage(order.getOrderButton())
+                .setNameField(order.getName())
+                .setSurnameField(order.getSurname())
+                .setRentAddressField(order.getAddress())
+                .clickMetroStation(order.getMetroStation())
+                .setPhoneNumberField(order.getPhoneNumber())
                 .clickNextStepOrderButton()
                 .clickWhenStartButton()
                 .setStartTime()
@@ -68,7 +73,7 @@ public class OrderCreateTest extends BaseUITest{
                 .clickConfirmButton()
                 .isOrderCompleteImageDisplayed();
 
-        assertTrue("Order created image is not displayed",isOrderCompleteImageDisplayed);
+        assertTrue("Order created image is not displayed", isOrderCompleteImageDisplayed);
     }
 
 }

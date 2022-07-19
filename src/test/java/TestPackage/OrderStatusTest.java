@@ -1,8 +1,6 @@
 package TestPackage;
 //условно готовый тест на проверку статуса заказа "не найден"
 import PageObject.MainPage;
-import PageObject.OrderStatusPage;
-import TestData.ScooterUrls;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 

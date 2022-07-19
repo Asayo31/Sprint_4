@@ -1,6 +1,4 @@
-package TestData;
-
-import org.openqa.selenium.WebDriver;
+package Model;
 
 public class ScooterUrls {
     public static final String MAIN_URL = "https://qa-scooter.praktikum-services.ru";

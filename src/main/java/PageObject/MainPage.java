@@ -1,7 +1,7 @@
 package PageObject;
 
 
-import TestData.ScooterUrls;
+import Model.ScooterUrls;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -35,13 +35,14 @@ public class MainPage extends BasePage{
         super(driver);
     }
 
-    public void clickOrderButtonMainpage (String button){
-        if (button == "Up") {driver.findElement(orderCreateUpButton).click();}
-        if (button == "Bottom") {
+    public MainPage clickOrderButtonMainpage (String button){
+        if (button.equals("Up")) {driver.findElement(orderCreateUpButton).click();}
+        if (button.equals("Bottom")) {
             WebElement element = driver.findElement(orderCreateBotButton);
             ((JavascriptExecutor)driver).executeScript("arguments0[.scrollIntoView", element);
             element.click();
         }
+        return this;
     }
 
     public MainPage clickOrderStatusButton(){

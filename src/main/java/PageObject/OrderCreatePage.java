@@ -16,9 +16,7 @@ public class OrderCreatePage extends BasePage {
     private final By surnameField = By.className ("Input_Input__1iN_Z Input_Error__1Tx5d Input_Responsible__1jDKN");
 
     private final By addressField = By.className ("Input_Input__1iN_Z Input_Responsible__1jDKN");
-    private final By metroField = By.className("select-search__input");
-
-    private final By metroList = By.partialLinkText("Фрунзенская");
+    private final By metroList = By.xpath(".//input[contains(@placeholder, 'Станция метро')]");
     private final By phoneNumberField = By.className("Input_Input__1iN_Z Input_Error__1Tx5d Input_Responsible__1jDKN");
     private final By nextStepButton = By.xpath(".//button[@class ='Button_Button__ra12g Button_Middle__1CSJM']");
     private final By startTimeField = By.className("Input_Input__1iN_Z Input_Responsible__1jDKN react-datepicker-ignore-onclickoutside");
@@ -49,15 +47,12 @@ public class OrderCreatePage extends BasePage {
         return this;
     } //внести адрес
 
-    public OrderCreatePage clickMetroStation(){
-        driver.findElement(metroField).click();
-        return new OrderCreatePage(driver);
-    } //нажать на выпадающий список станций метро
-
-    public OrderCreatePage clickMetroList(){
-        driver.findElement(metroList).sendKeys(metroList).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER);
+    public OrderCreatePage clickMetroStation(String stationName){
+        driver.findElement(metroList).click();
+        driver.findElement(metroList).sendKeys(stationName);
+        driver.findElement(By.xpath(".//button")).click();
         return this;
-    } //выбрать станцию метро из списка
+    }
 
     public OrderCreatePage setPhoneNumberField(String phoneNumber) {
         driver.findElement(phoneNumberField).sendKeys(phoneNumber);
