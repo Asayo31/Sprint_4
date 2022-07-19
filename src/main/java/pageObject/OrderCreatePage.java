@@ -1,4 +1,4 @@
-package PageObject;
+package pageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -11,21 +11,21 @@ public class OrderCreatePage extends BasePage {
         super(driver);
     }
 
-    private final By nameField = By.className ("Input_Input__1iN_Z Input_Error__1Tx5d Input_Responsible__1jDKN");
+    private final By nameField = By.xpath (".//input[@placeholder = '* Имя']");
 
-    private final By surnameField = By.className ("Input_Input__1iN_Z Input_Error__1Tx5d Input_Responsible__1jDKN");
+    private final By surnameField = By.xpath (".//input[@placeholder = '* Фамилия']");
 
-    private final By addressField = By.className ("Input_Input__1iN_Z Input_Responsible__1jDKN");
+    private final By addressField = By.xpath (".//input[@placeholder = '* Адрес: куда привезти заказ']");
     private final By metroList = By.xpath(".//input[contains(@placeholder, 'Станция метро')]");
-    private final By phoneNumberField = By.className("Input_Input__1iN_Z Input_Error__1Tx5d Input_Responsible__1jDKN");
-    private final By nextStepButton = By.xpath(".//button[@class ='Button_Button__ra12g Button_Middle__1CSJM']");
-    private final By startTimeField = By.className("Input_Input__1iN_Z Input_Responsible__1jDKN react-datepicker-ignore-onclickoutside");
-    private final By whenStartButton = By.className("react-datepicker__day react-datepicker__day--029");
+    private final By phoneNumberField = By.xpath(".//input[@placeholder = '* Телефон: на него позвонит курьер']");
+    private final By nextStepButton = By.xpath(".//button[@class ='Button_Button__ra12g' and 'Button_Middle__1CSJM']");
+    private final By startTimeField = By.xpath(".//input[@placeholder = '* Когда привезти самокат']");
+    private final By whenStartButton = By.xpath(".//div[@class = 'react-datepicker__day--029']");
     private final By rentPeriodField = By.className("Dropdown-placeholder");
     private final By rentPeriod = By.xpath(".//div[@class = 'Dropdown-option' and contains(text(), 'четверо суток')");
     private final By ScooterColor = By.xpath(".//input[@id = * and @class = 'Checkbox_Input__14A2w']");
     private final By rentButton = By.xpath(".//button[@class = 'Button_Button__ra12g Button_Middle__1CSJM']");
-    private final By confirmButton = By.xpath(".//button[@class = 'Button_Button__ra12g Button_Middle__1CSJM']");
+    private final By confirmButton = By.xpath(".//button[@class = 'Button_Button__ra12g' and 'Button_Middle__1CSJM']");
     private final By orderCompleteImage = By.className("Order_ModalHeader__3FDaJ");
 
     public OrderCreatePage setNameField (String name) {

@@ -1,13 +1,12 @@
-package TestPackage;
+package testPackage;
 //условно готовый тест на проверку статуса заказа "не найден"
-import PageObject.MainPage;
+import pageObject.MainPage;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import static org.junit.Assert.assertTrue;
 
 public class OrderStatusTest extends BaseUITest{
-    private WebDriver driver;
 
     @Test
     public void checkOrderStatusForNonExistingOrder() {

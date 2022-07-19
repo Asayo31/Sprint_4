@@ -1,6 +1,5 @@
-package PageObject;
+package pageObject;
 
-import Model.Order;
 import org.openqa.selenium.WebDriver;
 
 public class BasePage {

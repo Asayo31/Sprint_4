@@ -1,8 +1,8 @@
-package TestPackage;
+package testPackage;
 //условно готовый тест на проверку статуса заказа "не найден"
 
-import Model.Order;
-import PageObject.MainPage;
+import model.Order;
+import pageObject.MainPage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -28,7 +28,7 @@ public class OrderCreateTest extends BaseUITest {
         };
     }
 
-    private WebDriver driver;
+
 
     @Test
     public void checkOrderCreationUpButton() {
@@ -58,7 +58,6 @@ public class OrderCreateTest extends BaseUITest {
     public void checkOrderCreationBotButton() {
         boolean isOrderCompleteImageDisplayed = new MainPage(driver)
                 .open()
-                .clickCookie()
                 .clickOrderButtonMainpage(order.getOrderButton())
                 .setNameField(order.getName())
                 .setSurnameField(order.getSurname())

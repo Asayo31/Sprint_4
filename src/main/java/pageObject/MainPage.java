@@ -1,7 +1,7 @@
-package PageObject;
+package pageObject;
 
 
-import Model.ScooterUrls;
+import model.ScooterUrls;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -10,11 +10,11 @@ import org.openqa.selenium.WebElement;
 public class MainPage extends BasePage{
 
     private final By orderCreateUpButton = By.className ("Button_Button__ra12g");
-    private final By orderCreateBotButton = By.className ("Button_Button__ra12g Button_Middle__1CSJM");
+    private final By orderCreateBotButton = By.xpath (".//button[@class = 'Button_Button__ra12g' and 'Button_Middle__1CSJM']");
     private final By orderStatusButton = By.className("Header_Link__1TAG7");
     private final By orderNumberInput = By.xpath(".//input[@class='Input_Input__1iN_Z Header_Input__xIoUq']");
-    private final By searchOrderButton = By.xpath(".//button[@class='Button_Button__ra12g Header_Button__28dPO']");
-    private final By firstFaqButton = By.xpath(".//div[@id = 'accordion__heading-8']");
+    private final By searchOrderButton = By.xpath(".//button[@class='Button_Button__ra12g' and 'Header_Button__28dPO']");
+    private final By firstFaqButton = By.id("accordion__heading-8");
     private final By secondFaqButton = By.xpath(".//div[@id = 'accordion__heading-9']");
     private final By thirdFaqButton = By.xpath(".//div[@id = 'accordion__heading-10']");
     private final By fourFaqButton = By.xpath(".//div[@id = 'accordion__heading-11']");
@@ -31,14 +31,14 @@ public class MainPage extends BasePage{
     private final By faqAnswerSeven = By.xpath (".//div[@id = 'accordion__panel-14']");
     private final By faqAnswerEight = By.xpath (".//div[@id = 'accordion__panel-15']");
     private final By cookie = By.xpath(".//button[@class = 'App_CookieButton__3cvqF']");
-    private final String originOne = "Сутки — 400 рублей. Оплата курьеру — наличными или картой.";
-    private final String originTwo = "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.";
-    private final String originThree = "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.";
-    private final String originFour = "Только начиная с завтрашнего дня. Но скоро станем расторопнее.";
-    private final String originFive = "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.";
-    private final String originSix = "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.";
-    private final String originSeven = "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.";
-    private final String originEight = "Да, обязательно. Всем самокатов! И Москве, и Московской области.";
+    public final static String originOne = "Сутки — 400 рублей. Оплата курьеру — наличными или картой.";
+    public final static String originTwo = "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.";
+    public final static String originThree = "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.";
+    public final static String originFour = "Только начиная с завтрашнего дня. Но скоро станем расторопнее.";
+    public final static String originFive = "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.";
+    public final static String originSix = "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.";
+    public final static String originSeven = "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.";
+    public final static String originEight = "Да, обязательно. Всем самокатов! И Москве, и Московской области.";
 
 
     public MainPage clickCookie (){
@@ -50,7 +50,9 @@ public class MainPage extends BasePage{
     }
 
     public OrderCreatePage clickOrderButtonMainpage (String button){
-        if (button.equals("Up")) {driver.findElement(orderCreateUpButton).click();}
+        if (button.equals("Up")) {
+            driver.findElement(orderCreateUpButton).click();
+            return new OrderCreatePage(driver);}
         if (button.equals("Bottom")) {
             WebElement element = driver.findElement(orderCreateBotButton);
             ((JavascriptExecutor)driver).executeScript("arguments0[.scrollIntoView", element);

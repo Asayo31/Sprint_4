@@ -1,20 +1,22 @@
-package TestPackage;
+package testPackage;
 
-import PageObject.MainPage;
+import pageObject.MainPage;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static pageObject.MainPage.*;
 
-public class FaqTest {
-    private WebDriver driver;
+public class FaqTest extends BaseUITest{
+
 
     @Test
     public void checkFaqRowOne() {
 
         String actual = new MainPage(driver)
                 .open()
+                .clickCookie()
                 .clickFirstFaq()
                 .getFirstFAQText();
 
@@ -26,6 +28,7 @@ public class FaqTest {
 
         String actual = new MainPage(driver)
                 .open()
+                //.clickCookie()
                 .clickSecondFaq()
                 .getSecondFAQText();
 
@@ -35,12 +38,13 @@ public class FaqTest {
     @Test
     public void checkFaqRowThree() {
 
-        String actual ThirdFAQDisplayed = new MainPage(driver)
+        String actual = new MainPage(driver)
                 .open()
+                //.clickCookie()
                 .clickThirdFaq()
                 .getThirdFAQText();
 
-        assertEquals(OriginThree, actual);
+        assertEquals(originThree, actual);
     }
 
     @Test
@@ -48,6 +52,7 @@ public class FaqTest {
 
         String actual = new MainPage(driver)
                 .open()
+                //.clickCookie()
                 .clickFourFaq()
                 .getFourFAQText();
 
@@ -59,6 +64,7 @@ public class FaqTest {
 
         String actual = new MainPage(driver)
                 .open()
+                //.clickCookie()
                 .clickFiveFaq()
                 .getFiveFAQText();
 
@@ -70,6 +76,7 @@ public class FaqTest {
 
         String actual = new MainPage(driver)
                 .open()
+                //.clickCookie()
                 .clickSixFaq()
                 .getSixFAQText();
 
@@ -81,6 +88,7 @@ public class FaqTest {
 
         String actual = new MainPage(driver)
                 .open()
+                //.clickCookie()
                 .clickSevenFaq()
                 .getSevenFAQText();
 
@@ -92,6 +100,7 @@ public class FaqTest {
 
         String actual = new MainPage(driver)
                 .open()
+                //.clickCookie()
                 .clickEightFaq()
                 .getEightFAQText();
 

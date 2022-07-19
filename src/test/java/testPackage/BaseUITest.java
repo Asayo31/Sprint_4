@@ -1,4 +1,4 @@
-package TestPackage;
+package testPackage;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -7,20 +7,22 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.junit.After;
 import org.junit.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
+
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class BaseUITest {
-    public WebDriver driver;
+    public static WebDriver driver;
 
     @BeforeClass
-    public void setUp() {
+    public static void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
     @AfterClass
-    public void tearDown() {
+    public static void tearDown() {
         driver.quit();
     }
 }

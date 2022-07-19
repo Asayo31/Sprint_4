@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public class ScooterUrls {
     public static final String MAIN_URL = "https://qa-scooter.praktikum-services.ru";
