@@ -14,22 +14,22 @@ public class MainPage extends BasePage{
     private final By orderStatusButton = By.className("Header_Link__1TAG7");
     private final By orderNumberInput = By.xpath(".//input[@class='Input_Input__1iN_Z Header_Input__xIoUq']");
     private final By searchOrderButton = By.xpath(".//button[@class='Button_Button__ra12g' and 'Header_Button__28dPO']");
-    private final By firstFaqButton = By.id("accordion__heading-8");
-    private final By secondFaqButton = By.xpath(".//div[@id = 'accordion__heading-9']");
-    private final By thirdFaqButton = By.xpath(".//div[@id = 'accordion__heading-10']");
-    private final By fourFaqButton = By.xpath(".//div[@id = 'accordion__heading-11']");
-    private final By fiveFaqButton = By.xpath(".//div[@id = 'accordion__heading-12']");
-    private final By sixFaqButton = By.xpath(".//div[@id = 'accordion__heading-13']");
-    private final By sevenFaqButton = By.xpath(".//div[@id = 'accordion__heading-14']");
-    private final By eightFaqButton = By.xpath(".//div[@id = 'accordion__heading-15']");
-    private final By faqAnswerOne = By.xpath (".//div[@id = 'accordion__panel-8']");
-    private final By faqAnswerTwo = By.xpath (".//div[@id = 'accordion__panel-9']");
-    private final By faqAnswerThree = By.xpath (".//div[@id = 'accordion__panel-10']");
-    private final By faqAnswerFour = By.xpath (".//div[@id = 'accordion__panel-11']");
-    private final By faqAnswerFive = By.xpath (".//div[@id = 'accordion__panel-12']");
-    private final By faqAnswerSix = By.xpath (".//div[@id = 'accordion__panel-13']");
-    private final By faqAnswerSeven = By.xpath (".//div[@id = 'accordion__panel-14']");
-    private final By faqAnswerEight = By.xpath (".//div[@id = 'accordion__panel-15']");
+    private final By firstFaqButton = By.xpath ("//*[@id=\"accordion__heading-0\"]");
+    private final By secondFaqButton = By.xpath(".//div[@id = 'accordion__heading-1']");
+    private final By thirdFaqButton = By.xpath(".//div[@id = 'accordion__heading-2']");
+    private final By fourFaqButton = By.xpath(".//div[@id = 'accordion__heading-3']");
+    private final By fiveFaqButton = By.xpath(".//div[@id = 'accordion__heading-4']");
+    private final By sixFaqButton = By.xpath(".//div[@id = 'accordion__heading-5']");
+    private final By sevenFaqButton = By.xpath(".//div[@id = 'accordion__heading-6']");
+    private final By eightFaqButton = By.xpath(".//div[@id = 'accordion__heading-7']");
+    private final By faqAnswerOne = By.xpath ("//*[@id=\"accordion__panel-0\"]");
+    private final By faqAnswerTwo = By.xpath ("//*[@id=\"accordion__panel-1\"]");
+    private final By faqAnswerThree = By.xpath ("//*[@id=\"accordion__panel-2\"]");
+    private final By faqAnswerFour = By.xpath ("//*[@id=\"accordion__panel-3\"]");
+    private final By faqAnswerFive = By.xpath ("//*[@id=\"accordion__panel-4\"]");
+    private final By faqAnswerSix = By.xpath ("//*[@id=\"accordion__panel-5\"]");
+    private final By faqAnswerSeven = By.xpath ("//*[@id=\"accordion__panel-6\"]");
+    private final By faqAnswerEight = By.xpath ("//*[@id=\"accordion__panel-7\"]");
     private final By cookie = By.xpath(".//button[@class = 'App_CookieButton__3cvqF']");
     public final static String originOne = "Сутки — 400 рублей. Оплата курьеру — наличными или картой.";
     public final static String originTwo = "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.";
@@ -55,7 +55,7 @@ public class MainPage extends BasePage{
             return new OrderCreatePage(driver);}
         if (button.equals("Bottom")) {
             WebElement element = driver.findElement(orderCreateBotButton);
-            ((JavascriptExecutor)driver).executeScript("arguments0[.scrollIntoView", element);
+            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)", element);
             element.click();
         }
         return new OrderCreatePage(driver);
@@ -92,42 +92,58 @@ public class MainPage extends BasePage{
     } //нажать кнопку создания заказа снизу
 
     public MainPage clickFirstFaq () {
-        driver.findElement(firstFaqButton).click();
+        WebElement element = driver.findElement(firstFaqButton);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
+        element.click();
         return this;
     } //нажать 1 FAQ
 
     public MainPage clickSecondFaq () {
-        driver.findElement(secondFaqButton).click();
+        WebElement element = driver.findElement(secondFaqButton);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
+        element.click();
         return this;
     } //нажать 2 FAQ
 
     public MainPage clickThirdFaq () {
-        driver.findElement(thirdFaqButton).click();
+        WebElement element = driver.findElement(thirdFaqButton);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
+        element.click();
         return this;
     } //нажать 3 FAQ
 
     public MainPage clickFourFaq () {
-        driver.findElement(fourFaqButton).click();
+        WebElement element = driver.findElement(fourFaqButton);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
+        element.click();
         return this;
     } //нажать 4 FAQ
 
     public MainPage clickFiveFaq () {
-        driver.findElement(fiveFaqButton).click();
+        WebElement element = driver.findElement(fiveFaqButton);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
+        element.click();
         return this;
     } //нажать 5 FAQ
 
     public MainPage clickSixFaq () {
-        driver.findElement(sixFaqButton).click();
+        WebElement element = driver.findElement(sixFaqButton);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
+        element.click();
         return this;
     } //нажать 6 FAQ
 
     public MainPage clickSevenFaq () {
-        driver.findElement(sevenFaqButton).click();
+        WebElement element = driver.findElement(sevenFaqButton);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
+        element.click();
         return this;
     } //нажать 7 FAQ
 
     public MainPage clickEightFaq () {
-        driver.findElement(eightFaqButton).click();
+        WebElement element = driver.findElement(eightFaqButton);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
+        element.click();
         return this;
     } //нажать 8 FAQ
 

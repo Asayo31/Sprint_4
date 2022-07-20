@@ -19,14 +19,14 @@ public class OrderCreatePage extends BasePage {
     private final By metroList = By.xpath(".//input[contains(@placeholder, 'Станция метро')]");
     private final By phoneNumberField = By.xpath(".//input[@placeholder = '* Телефон: на него позвонит курьер']");
     private final By nextStepButton = By.xpath(".//button[text()='Далее']");
-    private final By startTimeField = By.xpath(".//input[@placeholder = '* Когда привезти самокат']");
-    private final By whenStartButton = By.xpath(".//*[@class = 'react-datepicker__day--029']");
-    private final By rentPeriodField = By.className("Dropdown-placeholder");
-    private final By rentPeriod = By.xpath(".//div[@class = 'Dropdown-option' and contains(text(), 'четверо суток')");
-    private final By ScooterColor = By.xpath(".//input[@id = * and @class = 'Checkbox_Input__14A2w']");
-    private final By rentButton = By.xpath(".//button[@class = 'Button_Button__ra12g Button_Middle__1CSJM']");
-    private final By confirmButton = By.xpath(".//button[@class = 'Button_Button__ra12g' and 'Button_Middle__1CSJM']");
-    private final By orderCompleteImage = By.className("Order_ModalHeader__3FDaJ");
+    private final By startTimeField = By.xpath("//div[@role='button' and contains(@class, 'react-datepicker__day--027')]");
+    private final By whenStartButton = By.xpath(".//input[@type='text' and contains(@placeholder, 'Когда привезти')]");
+    private final By rentPeriodField = By.xpath(".//span[@class = 'Dropdown-arrow']");
+    private final By rentPeriod = By.xpath(".//div[@class = 'Dropdown-menu']/div[@role = 'option' and contains(@class, 'Dropdown-option')]");
+    private final By ScooterColor = By.xpath(".//input[@id = 'black']");
+    private final By rentButton = By.cssSelector("#root > div > div.Order_Content__bmtHS > div.Order_Buttons__1xGrp > button:nth-child(2)");
+    private final By confirmButton = By.cssSelector("#root > div > div.Order_Content__bmtHS > div.Order_Modal__YZ-d3 > div.Order_Buttons__1xGrp > button:nth-child(2)");
+    private final By orderCompleteImage = By.xpath(".//div[@class = 'Order_ModalHeader__3FDaJ']");
 
     public OrderCreatePage setNameField (String name) {
         driver.findElement(nameField).sendKeys(name);
