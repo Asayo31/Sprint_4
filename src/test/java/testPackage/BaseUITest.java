@@ -8,6 +8,7 @@ import org.junit.After;
 import org.junit.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import pageObject.MainPage;
 
 import java.time.Duration;
@@ -20,7 +21,7 @@ public class BaseUITest {
     public static void setUp() {
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(45));
         MainPage mainPage = new MainPage(driver)
                 .open()
                 .clickCookie();

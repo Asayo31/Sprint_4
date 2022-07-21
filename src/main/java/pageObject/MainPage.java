@@ -7,14 +7,19 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.regex.Pattern;
 
 public class MainPage extends BasePage{
 
     private final By orderCreateUpButton = By.className ("Button_Button__ra12g");
     private final By orderCreateBotButton = By.xpath (".//button[@class = 'Button_Button__ra12g' and 'Button_Middle__1CSJM']");
     private final By orderStatusButton = By.className("Header_Link__1TAG7");
-    private final By orderNumberInput = By.xpath(".//input[@class='Input_Input__1iN_Z Header_Input__xIoUq']");
-    private final By searchOrderButton = By.xpath(".//*[@id=\"root\"]/div/div/div[1]/div[3]/button[contains(text(), 'Go!')]");
+    private final By orderNumberInput = By.cssSelector(".Header_Link__1TAG7");
+    private final By searchOrderButton = By.xpath(".//button[@class='Button_Button__ra12g Header_Button__28dPO']");
     private final By firstFaqButton = By.xpath ("//*[@id=\"accordion__heading-0\"]");
     private final By secondFaqButton = By.xpath(".//div[@id = 'accordion__heading-1']");
     private final By thirdFaqButton = By.xpath(".//div[@id = 'accordion__heading-2']");
@@ -73,7 +78,8 @@ public class MainPage extends BasePage{
     } //ввести номер для проверки
 
     public OrderStatusPage clickSearchOrderButton(){
-        driver.findElement(searchOrderButton).click();
+        final WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(searchOrderButton)).click();
         return new OrderStatusPage(driver);
     } //начать поиск
 
@@ -149,35 +155,71 @@ public class MainPage extends BasePage{
     } //нажать 8 FAQ
 
     public String getFirstFAQText () {
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(faqAnswerOne));
         return driver.findElement(faqAnswerOne).getText();
     } //ответ 1 FAQ
 
     public String getSecondFAQText () {
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(faqAnswerTwo));
         return driver.findElement(faqAnswerTwo).getText();
     } //ответ 2 FAQ
 
     public String getThirdFAQText () {
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(faqAnswerThree));
         return driver.findElement(faqAnswerThree).getText();
     } //ответ 3 FAQ
 
     public String getFourFAQText () {
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(faqAnswerFour));
         return driver.findElement(faqAnswerFour).getText();
     } //ответ 4 FAQ
 
     public String getFiveFAQText () {
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(faqAnswerFive));
         return driver.findElement(faqAnswerFive).getText();
     } //ответ 5 FAQ
 
     public String getSixFAQText () {
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(faqAnswerSix));
         return driver.findElement(faqAnswerSix).getText();
     } //ответ 6 FAQ
 
     public String getSevenFAQText () {
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(faqAnswerSeven));
         return driver.findElement(faqAnswerSeven).getText();
     } //ответ 7 FAQ
 
     public String getEightFAQText () {
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(faqAnswerEight));
         return driver.findElement(faqAnswerEight).getText();
     } //ответ 8 FAQ
 
+
+
+    //правки
+    public void scrollToBottom() {
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,2300)");
+    }
+
+    public String getCurrentAnswerText() {
+        final By answerLocator = By.xpath("//div[contains(@class, 'accordion__panel') and not(@hidden)]/p");
+        final WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        wait.until(ExpectedConditions.textMatches(answerLocator, Pattern.compile(".+")));
+        return driver.findElement(answerLocator).getText();
+    }
+
+    public void clickQuestion(int item) {
+        final By locator = By.xpath("//div[contains(@id, 'accordion__heading-')]");
+        final WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        final WebElement el = driver.findElements(locator).get(item);
+        wait.until(ExpectedConditions.elementToBeClickable(el)).click();
+    }
 }
