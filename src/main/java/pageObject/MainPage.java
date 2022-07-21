@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class MainPage extends BasePage{
 
@@ -13,7 +14,7 @@ public class MainPage extends BasePage{
     private final By orderCreateBotButton = By.xpath (".//button[@class = 'Button_Button__ra12g' and 'Button_Middle__1CSJM']");
     private final By orderStatusButton = By.className("Header_Link__1TAG7");
     private final By orderNumberInput = By.xpath(".//input[@class='Input_Input__1iN_Z Header_Input__xIoUq']");
-    private final By searchOrderButton = By.xpath(".//button[@class='Button_Button__ra12g' and 'Header_Button__28dPO']");
+    private final By searchOrderButton = By.xpath(".//*[@id=\"root\"]/div/div/div[1]/div[3]/button[contains(text(), 'Go!')]");
     private final By firstFaqButton = By.xpath ("//*[@id=\"accordion__heading-0\"]");
     private final By secondFaqButton = By.xpath(".//div[@id = 'accordion__heading-1']");
     private final By thirdFaqButton = By.xpath(".//div[@id = 'accordion__heading-2']");
@@ -92,57 +93,57 @@ public class MainPage extends BasePage{
     } //нажать кнопку создания заказа снизу
 
     public MainPage clickFirstFaq () {
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,2300)");
         WebElement element = driver.findElement(firstFaqButton);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
         element.click();
         return this;
     } //нажать 1 FAQ
 
     public MainPage clickSecondFaq () {
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,2300)");
         WebElement element = driver.findElement(secondFaqButton);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
         element.click();
         return this;
     } //нажать 2 FAQ
 
     public MainPage clickThirdFaq () {
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,2300)");
         WebElement element = driver.findElement(thirdFaqButton);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
         element.click();
         return this;
     } //нажать 3 FAQ
 
     public MainPage clickFourFaq () {
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,2300)");
         WebElement element = driver.findElement(fourFaqButton);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
         element.click();
         return this;
     } //нажать 4 FAQ
 
     public MainPage clickFiveFaq () {
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,2300)");
         WebElement element = driver.findElement(fiveFaqButton);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
         element.click();
         return this;
     } //нажать 5 FAQ
 
     public MainPage clickSixFaq () {
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,2300)");
         WebElement element = driver.findElement(sixFaqButton);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
         element.click();
         return this;
     } //нажать 6 FAQ
 
     public MainPage clickSevenFaq () {
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,2300)");
         WebElement element = driver.findElement(sevenFaqButton);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
         element.click();
         return this;
     } //нажать 7 FAQ
 
     public MainPage clickEightFaq () {
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,2300)");
         WebElement element = driver.findElement(eightFaqButton);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(".//div[text()='Вопросы о важном']")));
         element.click();
         return this;
     } //нажать 8 FAQ
