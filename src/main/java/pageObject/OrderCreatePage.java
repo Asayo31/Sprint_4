@@ -26,7 +26,7 @@ public class OrderCreatePage extends BasePage {
     private final By ScooterColor = By.xpath(".//input[@id = 'black']");
     private final By rentButton = By.cssSelector("#root > div > div.Order_Content__bmtHS > div.Order_Buttons__1xGrp > button:nth-child(2)");
     private final By confirmButton = By.cssSelector("#root > div > div.Order_Content__bmtHS > div.Order_Modal__YZ-d3 > div.Order_Buttons__1xGrp > button:nth-child(2)");
-    private final By orderCompleteImage = By.xpath(".//div[@class = 'Order_Text__2broi']");
+    private final By orderCompleteImage = By.xpath("//div[text()='Заказ оформлен']");
 
     public OrderCreatePage setNameField (String name) {
         driver.findElement(nameField).sendKeys(name);
